@@ -5,3 +5,4 @@ transformers
 torch
 pandas 
 flask
+flask_cors
