@@ -2,7 +2,11 @@ from flask import Flask, request, jsonify, send_file
 from flask_cors import CORS
 import pandas as pd
 from sentence_transformers import SentenceTransformer, util
-import requests
+import requests 
+import os
+os.environ["OMP_NUM_THREADS"] = "2"   # Limit OpenMP threads
+os.environ["MKL_NUM_THREADS"] = "2"   # Limit MKL threads
+
 
 app = Flask(__name__)
 CORS(app)
@@ -37,7 +41,7 @@ def chat():
             # Call Ollama local API (make sure Ollama is running)
             ollama_url = "http://localhost:11434/api/generate"
             payload = {
-                "model": "mistral",
+                "model": "mistral:7b",
                 "prompt": user_input,
                 "stream": False
             }
