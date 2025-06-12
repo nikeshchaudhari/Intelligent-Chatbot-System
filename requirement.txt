@@ -1,8 +1,0 @@
-streamlit
-ollama
-sentence-transformers
-transformers
-torch
-pandas 
-flask
-flask_cors
